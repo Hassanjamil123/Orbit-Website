@@ -31,8 +31,8 @@ export default function HomePage() {
       <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
         <HeroBackdrop />
         <Container className="flex min-h-[40rem] flex-col items-center justify-center py-24 text-center sm:min-h-[46rem] lg:min-h-[50rem]">
-          <h1 id="hero-title" className="text-display font-bold uppercase">
-            Just tell
+          <h1 id="hero-title" className="text-display font-bold">
+            Just Tell
             <br />
             Orbit.
           </h1>

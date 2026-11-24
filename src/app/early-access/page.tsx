@@ -28,7 +28,7 @@ export default function EarlyAccessPage() {
       <section aria-labelledby="early-title" className="relative isolate overflow-hidden border-b border-line">
         <HeroBackdrop />
         <Container className="flex flex-col items-center py-24 text-center sm:py-28 lg:py-32">
-          <h1 id="early-title" className="text-display font-bold uppercase">
+          <h1 id="early-title" className="text-display font-bold">
             Join the
             <br />
             private beta.

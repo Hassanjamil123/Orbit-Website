@@ -26,7 +26,7 @@ export default async function OpengraphImage() {
         }}
       >
         <img src={iconSrc} width={132} height={132} alt="" style={{ borderRadius: 30 }} />
-        <div style={{ marginTop: 44, fontSize: 100, fontWeight: 700, letterSpacing: -4 }}>JUST TELL ORBIT.</div>
+        <div style={{ marginTop: 44, fontSize: 100, fontWeight: 700, letterSpacing: -4 }}>Just Tell Orbit.</div>
         <div style={{ marginTop: 18, fontSize: 32, color: "#4f5160" }}>
           A personal AI built to do more than answer.
         </div>

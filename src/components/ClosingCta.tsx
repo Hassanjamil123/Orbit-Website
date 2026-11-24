@@ -36,8 +36,8 @@ export function ClosingCta({
           />
           <div className={`grid items-center gap-12 ${children ? "lg:grid-cols-[1fr_1.05fr] lg:gap-16" : ""}`}>
             <div>
-              <h2 id="closing-title" className="text-display font-bold uppercase">
-                Just tell
+              <h2 id="closing-title" className="text-display font-bold">
+                Just Tell
                 <br />
                 Orbit.
               </h2>
