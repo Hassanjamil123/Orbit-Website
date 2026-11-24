@@ -10,18 +10,19 @@
 
 ## Brand assets
 
-- [ ] Transparent SVG/PNG of the horizontal logo for light backgrounds (the "Inverse" or "Flat" variants on the brand sheet), so the header no longer needs the dark tile
-- [ ] Official purple hex values to confirm the derived `#7b35e8` (see `docs/BRAND.md`)
-- [ ] Satoshi WOFF2 files and license in `public/fonts/`
+- [ ] Vector (SVG) or high-resolution transparent masters of the flat logo and icon; the extracted ones come from a ~150px source (`docs/BRAND.md`)
+- [ ] Approve the light-background logo adjustments (glow removed, glint tinted)
+- [ ] Official purple hex values to confirm the derived `#7b35e8`
+- [ ] Satoshi licence file in `public/fonts/fonts/`
 - [ ] Optional: a designed 1200×630 social card to replace the generated one
 
 ## Content to confirm
 
 - [ ] Beta vs longer-term labels in `src/content/capabilities.ts` (`docs/DECISIONS.md`)
 - [ ] All copy, especially How it works and the commitments that you approve consequential actions
-- [ ] Contact mailbox `hello@justtellorbit.com` exists
+- [ ] A monitored contact address in `src/lib/site.ts` (needed for the privacy page)
 - [ ] Social profile URLs, once accounts exist (`src/lib/site.ts`)
-- [ ] Privacy notice reviewed for the places you'll collect sign-ups from; retention periods are placeholders
+- [ ] Privacy items in `docs/PRIVACY-REVIEW.md`, then a qualified review
 - [ ] Careers "Before you get in touch" wording checked against local rules on unpaid work
 - [ ] Terms page, if and when the product needs one (`features.terms`)
 

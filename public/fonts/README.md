@@ -1,11 +1,11 @@
 # Fonts
 
-The site is designed for **Satoshi** (Indian Type Foundry, distributed via Fontshare
-under the ITF Free Font License, which permits commercial web use). Before launch:
+`fonts/` holds the Satoshi family from Fontshare (Indian Type Foundry), licensed under the
+ITF Free Font License, which allows use on websites.
 
-1. Download Satoshi from https://www.fontshare.com/fonts/satoshi
-2. Copy `Satoshi-Variable.woff2` and `Satoshi-VariableItalic.woff2` into this folder.
-3. Keep a copy of the license file from the download alongside them.
+The site loads only `Satoshi-Variable` and `Satoshi-VariableItalic` (woff2, with woff as a
+fallback). Those two files contain every weight from Light to Black. The static files
+(Light, Regular, Medium, Bold, Black and their italics, in eot/ttf/woff/woff2) are kept for
+design tools and older software; loading them as well would only add download weight.
 
-Until the files are present, the `@font-face` rules in `src/app/globals.css` fail
-quietly and the system sans-serif stack is used.
+Add the licence text from the Fontshare download to this folder before launch.

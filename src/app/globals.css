@@ -1,15 +1,28 @@
 @import "tailwindcss";
 
 /*
- * Satoshi (Indian Type Foundry, via Fontshare) is free for personal and commercial
- * use under the ITF Free Font License. Place the WOFF2 files in public/fonts/
- * (see public/fonts/README.md). Until then the system stack below is used.
+ * Satoshi by Indian Type Foundry (Fontshare, ITF Free Font License).
+ * Files live in public/fonts/fonts/. The two variable files cover every weight
+ * from Light (300) to Black (900), upright and italic, so the browser downloads
+ * at most two small files. The static per-weight files in the same folder are
+ * kept for design tools and are not loaded by the website.
  */
 @font-face {
   font-family: "Satoshi";
-  src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+  src:
+    url("/fonts/fonts/Satoshi-Variable.woff2") format("woff2"),
+    url("/fonts/fonts/Satoshi-Variable.woff") format("woff");
   font-weight: 300 900;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src:
+    url("/fonts/fonts/Satoshi-VariableItalic.woff2") format("woff2"),
+    url("/fonts/fonts/Satoshi-VariableItalic.woff") format("woff");
+  font-weight: 300 900;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -67,6 +80,21 @@
   [id] {
     scroll-margin-top: 6rem;
   }
+}
+
+/* The one ambient motion on the site: the hero's example request changes gently. */
+@keyframes example-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.example-in {
+  animation: example-in 0.6s var(--ease-out-soft) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

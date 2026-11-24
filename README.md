@@ -64,14 +64,16 @@ src/
     globals.css              Design tokens (colors, type scale) and base styles
   components/
     ui.tsx                   Container, Section, Heading, PageIntro, ButtonLink, Tag
-    Logo.tsx                 Official logo (horizontal) and app icon
+    Logo.tsx                 Official logo, app icon and ring icon
+    RotatingRequest.tsx      Hero example requests
     SiteHeader.tsx           Header with accessible mobile menu
     SiteFooter.tsx, ClosingCta.tsx
     forms/                   WaitlistForm, InterestForm, field parts
   content/capabilities.ts    All capability/domain copy and beta labels
   lib/                       site config, validation, submissions, storage, export
 brand-source/                Original logo files, untouched
-public/brand/                Web-ready crops and resizes of the logo
+public/brand/                Logo assets extracted from the brand sheet (docs/BRAND.md)
+public/fonts/fonts/          Satoshi (only the variable files are loaded)
 supabase/schema.sql          Tables, unique indexes, row-level security
 tests/                       Validation and API tests
 docs/                        Brand, decisions, deployment, testing, launch checklist

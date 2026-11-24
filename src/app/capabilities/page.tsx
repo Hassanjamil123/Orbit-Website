@@ -24,7 +24,7 @@ export default function CapabilitiesPage() {
               <Tag tone="accent">{stageLabel.beta}</Tag>
             </dt>
             <dd className="text-[0.95rem] leading-relaxed text-body">
-              What we&apos;re building for the private beta: research, planning and drafting.
+              Being developed for the private beta: research, planning, drafting and remembering your context.
             </dd>
           </div>
           <div className="flex items-start gap-3">
@@ -32,7 +32,7 @@ export default function CapabilitiesPage() {
               <Tag>{stageLabel.later}</Tag>
             </dt>
             <dd className="text-[0.95rem] leading-relaxed text-body">
-              Where Orbit is headed: acting on your behalf, always with your approval.
+              Broader capabilities for later, including acting on your behalf, always with your approval.
             </dd>
           </div>
         </dl>
@@ -59,17 +59,17 @@ export default function CapabilitiesPage() {
             ))}
           </div>
 
-          <details className="group mt-20 rounded-3xl border border-line bg-mist p-6 sm:p-8">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold tracking-[-0.02em] [&::-webkit-details-marker]:hidden">
-              More areas Orbit could help with
-              <span
-                aria-hidden="true"
-                className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line bg-canvas text-lg transition-transform group-open:rotate-45"
-              >
-                +
-              </span>
-            </summary>
-            <ul className="mt-6 grid gap-6 sm:grid-cols-2">
+          <section aria-labelledby="more-title" className="mt-24 rounded-3xl border border-line bg-mist p-7 sm:p-10">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 id="more-title" className="text-2xl font-bold tracking-[-0.025em] sm:text-3xl">
+                Further ahead
+              </h2>
+              <Tag>{stageLabel.later}</Tag>
+            </div>
+            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-body">
+              Areas we want Orbit to reach in time. None of these are available today.
+            </p>
+            <ul className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
               {moreDomains.map((m) => (
                 <li key={m.name}>
                   <h3 className="font-bold">{m.name}</h3>
@@ -77,8 +77,7 @@ export default function CapabilitiesPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-muted">All longer term. Nothing here is available today.</p>
-          </details>
+          </section>
         </Container>
       </Section>
 

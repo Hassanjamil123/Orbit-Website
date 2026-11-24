@@ -1,4 +1,4 @@
-# Testing notes: Assignment 002
+# Testing notes: Master Assignment 002
 
 ## Environment limits
 
@@ -34,7 +34,7 @@ the file storage driver. Browser tests used Playwright with Chromium.
   string; CSV with formula cells neutralized; JSON variant
 - Supabase driver: unique violation mapped to duplicate; correct REST URL and headers
 
-## Browser tests (Playwright, Chromium): 32 checks, all passing
+## Browser tests (Playwright, Chromium): 38 checks, all passing
 
 Viewports: desktop 1440×900, tablet 820×1180, mobile 390×844.
 
@@ -46,7 +46,8 @@ Viewports: desktop 1440×900, tablet 820×1180, mobile 390×844.
 | Missing consent error | ✓ | ✓ | ✓ |
 | Success state, focus moves to it (`role="status"`) | ✓ | ✓ | ✓ |
 | Duplicate state on `/early-access` (case-changed email) | ✓ | ✓ | ✓ |
-| Mobile menu: opens with `aria-expanded`, Escape closes, link navigates | n/a | n/a (desktop nav from 768px) | ✓ |
+| Product menu: opens, Escape closes and refocuses, link navigates | ✓ | ✓ | n/a |
+| Mobile menu: opens with `aria-expanded`, Escape closes, link navigates | n/a | n/a | ✓ |
 | Careers form: validation and stored submission | ✓ | ✓ | ✓ |
 
 Also:
@@ -57,7 +58,7 @@ Also:
 - Cross-origin POST → 403; export without a token → 404
 - 6 sign-ups (3 new, 3 duplicates) produced exactly 3 rows, each with source and referral code
 
-The only console error is the expected 404 for the Satoshi font files, which aren't added yet.
+Pages were rendered with the real Satoshi files; there were no console errors.
 
 ## Not yet tested
 
@@ -65,5 +66,4 @@ The only console error is the expected 404 for the Satoshi font files, which are
 - Safari (desktop and iOS) and Firefox
 - Screen readers (VoiceOver, NVDA)
 - Lighthouse/Core Web Vitals on a real deployment
-- Layout with Satoshi loaded (line breaks were tuned on the system fallback)
 - Supabase against a real project

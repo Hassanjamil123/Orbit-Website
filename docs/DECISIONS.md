@@ -2,10 +2,10 @@
 
 ## Beta vs longer-term labels
 
-`src/content/capabilities.ts` labels each capability and example as **Early focus** (private
-beta) or **Longer term**. No roadmap was supplied, so one rule was applied: helping you
-*decide* (research, planning, drafting) is early; *acting for you* (booking, buying,
-submitting, sending) is later. Founders should correct this file before launch. It's the
+`src/content/capabilities.ts` labels each capability and example as **Private beta focus**
+or **Future**. No roadmap was supplied, so one rule was applied: helping you *decide*
+(research, planning, drafting, remembering context, breaking work into steps) is beta;
+*acting for you* (booking, buying, submitting, sending, connected services) is future. Founders should correct this file before launch. It's the
 only place these labels live.
 
 ## Showing a "you're already on the list" state
@@ -26,7 +26,19 @@ adds a question, and nothing uses it yet.
 No email provider is configured, so the site never says an email was sent. The success message
 says we'll be in touch. Add double opt-in once a provider is chosen.
 
-## Social links
+## Social links and contact
 
-No social profile URLs were provided. The footer names X, LinkedIn, Instagram and YouTube as
-coming soon, without links. Add URLs in `src/lib/site.ts` and they appear as links.
+No verified social URLs or contact address were provided, so none appear on the site. Add them
+to `src/lib/site.ts`: social links then appear in a footer Social column, and a contact address
+adds Contact to the footer and the privacy page.
+
+## No Trust & Safety page yet
+
+The brief allows one only if it can describe safeguards that actually exist. The product
+isn't built yet, so the site describes approvals and control as design principles ("being
+built around") rather than as implemented features.
+
+## Header
+
+Desktop: logo, Product (menu with Capabilities and How it works), About, Careers, Join the
+waitlist. Mobile: logo, Join waitlist, and a menu button listing all four pages.

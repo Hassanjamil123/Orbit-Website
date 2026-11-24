@@ -76,7 +76,7 @@ export function WaitlistForm({ source, align = "left" }: Props) {
               ) : (
                 <>
                   We&apos;ll be in touch at <span className="font-medium text-ink">{email.trim().toLowerCase()}</span>{" "}
-                  when your invite is ready.
+                  as places in the private beta open up.
                 </>
               )}
             </p>

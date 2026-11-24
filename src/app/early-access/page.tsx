@@ -17,7 +17,7 @@ const expectations = [
   },
   {
     title: "Invites in small groups",
-    body: "We're opening Orbit gradually so we can build it carefully with the people using it.",
+    body: "We're opening Orbit gradually. Joining the waitlist doesn't guarantee immediate access.",
   },
   {
     title: "Easy to leave",
@@ -34,8 +34,7 @@ export default function EarlyAccessPage() {
           Join the private beta.
         </h1>
         <p className="mt-8 max-w-[34rem] text-lead text-body">
-          Orbit will open first to a small group of early users. Leave your email and we&apos;ll be in touch when your
-          invite is ready.
+          Orbit is preparing for a private beta. Leave your email and we&apos;ll be in touch as places open up.
         </p>
         <div className="mt-12 w-full">
           <WaitlistForm source="early-access" align="center" />

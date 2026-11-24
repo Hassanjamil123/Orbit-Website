@@ -1,53 +1,48 @@
-# Brand usage on the website
+# Brand assets on the website
 
-## Logo files
+## Sources
 
-The founders supplied four raster files, kept unchanged in `brand-source/`:
+The four supplied images are kept unchanged in `brand-source/`. Every web asset below was
+extracted from them by script. Nothing was redrawn, traced or regenerated.
 
-| Original | What it is |
-| --- | --- |
-| `orbit-app-icon-dark.original.png` | App icon: rounded square, glowing ring, "Orbit" inside |
-| `orbit-primary-logo.original.png` | Primary logo on black, ring with "Orbit" inside |
-| `orbit-horizontal-logo.original.png` | Horizontal logo (ring + wordmark) on near-black, with a menu glyph at left |
-| `orbit-brand-sheet.original.png` | Presentation sheet of all variants (not used directly) |
+## Assets in `public/brand/`
 
-Web files in `public/brand/` and `src/app/` are **crops and resizes only**. Nothing has been
-redrawn, recolored or regenerated:
+| File | What it is | Where it's used | How it was made |
+| --- | --- | --- | --- |
+| `orbit-logo-light.(png\|webp)` | **A. Primary light-background horizontal logo**: flat ring + near-black wordmark, transparent | Header, footer | The "Flat logo" tile on the brand sheet, separated from its black background by colour-to-alpha (keeps anti-aliasing). Wordmark refilled with near-black `#0d0d12` using its original alpha. Ring: outer glow removed outside the ring band, and the white glint highlight tinted to the ring's own colour at that angle so it doesn't vanish on white. |
+| `orbit-logo-dark.(png\|webp)` | **B. Dark-background horizontal logo**: original flat ring + white wordmark, transparent | Available for dark placements | Same tile, colour-to-alpha only; ring kept exactly as supplied, glint included. |
+| `orbit-icon-flat.(png\|webp)` | **C. Flat icon, for light surfaces** | Small UI placements | Ring from (A). |
+| `orbit-icon-flat-on-dark.(png\|webp)` | **C. Flat icon, original** | Dark surfaces | Ring from (B). |
+| `orbit-icon-glow.(png\|webp)` | **D. Glowing icon**, transparent | Dark promotional contexts only | Ring from the supplied horizontal logo, colour-to-alpha against its background, glow preserved. |
+| `orbit-app-icon-ring.png` | Ring-only dark app icon | Source for the favicon | "App icon / dark" tile on the brand sheet, cropped, corners made transparent. |
+| `orbit-app-icon-256.(png\|webp)`, `-180.png` | Dark app icon with wordmark | Page heroes, social card, Apple touch icon | Supplied app-icon image, cropped to its rounded square. |
+| `orbit-primary-*.webp` | Primary logo on black | Not placed | Resized from the supplied primary logo. |
 
-- `orbit-horizontal-dark-*.webp/png`: the horizontal logo cropped to ring + wordmark (the menu
-  glyph is UI, not part of the logo), keeping its own dark background. Used in the header
-  (36px tall) and footer (44px), with rounded corners.
-- `orbit-app-icon-*`: the app icon cropped to its rounded square; the black outside the corners
-  is made transparent. Used in page heroes, the social card, and as the favicon
-  (`src/app/favicon.ico`, `icon.png`, `apple-icon.png`).
-- `orbit-primary-*.webp`: resized primary logo, available but not currently placed.
+**E. Web icons** (`src/app/`): `favicon.ico` (16/32/48) and `icon.png` use the ring-only dark app
+icon, because the wordmark inside the other app icon is unreadable at 16px. `apple-icon.png`
+uses the app icon with the wordmark.
 
-## Why the logo sits on a dark tile
+All were checked on white, off-white, near-black and deep-violet surfaces, and at header
+(30px tall, 1x and 2x) and favicon (16/32/48px) sizes.
 
-Every supplied file is artwork on a dark background, and the glow only reads on dark. The
-site's backgrounds are white as the brief requires, so the header and footer show the
-horizontal logo as its own dark tile rather than stripping its background, which would change
-the design.
+## Limitations: please supply vector or high-res masters
 
-**Needed from the brand owner:** the "Inverse" and "Flat" variants shown on the brand sheet as
-transparent SVG or high-resolution PNG files. With an inverse (dark-on-light) horizontal logo, the
-header can drop the dark tile. These variants can't be taken from the sheet: they're too small
-there, and extracting them would mean redrawing them.
+- The flat logo on the brand sheet is only about **150px tall**. That's enough for the header
+  and footer on high-density screens, but not for large uses such as a 400px logo on a slide.
+  Supply an SVG, or a transparent PNG at least 1000px wide, for (A), (B) and (C).
+- The light-surface version needed two small adjustments to work on white: removing the outer
+  glow (which the brief asks for) and tinting the white glint. Please confirm these are
+  acceptable, or supply the intended light-background artwork.
+- No SVGs were produced: tracing the raster would be a recreation, not the official artwork.
 
-## Color
+## Colour
 
-The accent `#7b35e8` was sampled from the violet at the base of the logo ring (`#7935dd`–`#883aef`),
-then adjusted slightly so white button text on it passes WCAG AA (5.9:1). The two ends of the
-logo ring, `#b04cf4` (magenta) and `#6351f8` (blue-violet), are used only for the thin rule under
-"Just Tell Orbit." and the answers-to-outcomes line. **Please confirm or replace these with the official hex values.**
+Accent `#7b35e8` was sampled from the violet at the base of the logo ring and darkened
+slightly so white button text passes WCAG AA (5.9:1). Ring ends `#b04cf4` and `#6351f8` are used
+only for the thin rule under the closing "Just Tell Orbit.". Please confirm against official hex values.
 
 ## Type
 
-The site is set in Satoshi when its files are in `public/fonts/` (see the README there), with a
-system sans-serif fallback. Its look was checked only with the fallback font.
-
-## Tagline
-
-"Just Tell Orbit." appears in: the homepage hero (brand line), the "Just tell Orbit what you
-need." section, the closing call to action on every marketing page, the footer, and the default
-page title, description and social card.
+Satoshi (Fontshare, ITF Free Font License) from `public/fonts/fonts/`. The site loads only the
+two variable files (woff2, with woff as a fallback), which cover weights 300–900, upright and
+italic. See `public/fonts/README.md`.

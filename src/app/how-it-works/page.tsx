@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { ClosingCta } from "@/components/ClosingCta";
 import { AppIcon } from "@/components/Logo";
-import { Container, PageIntro, Section } from "@/components/ui";
+import { Container, PageIntro, Section, Tag } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "How it works",
@@ -40,8 +40,8 @@ function Check({ done = true }: { done?: boolean }) {
 
 const steps = [
   {
-    title: "Tell Orbit what you need.",
-    body: "Speak naturally, the way you would to a capable friend. No commands to learn, no prompts to engineer. If something's unclear, Orbit asks.",
+    title: "Just tell Orbit.",
+    body: "Describe what you want to get done, the way you would to a capable friend. No commands to learn. If something's unclear, Orbit asks.",
     art: (
       <Frame>
         <p className="ml-auto max-w-[90%] rounded-2xl rounded-br-md bg-ink px-4 py-3 leading-snug text-white">
@@ -57,8 +57,8 @@ const steps = [
     ),
   },
   {
-    title: "Orbit figures out how to help.",
-    body: "It breaks the request into steps, does the research, and works with the information and services you've connected, where they're supported.",
+    title: "Orbit works out the steps.",
+    body: "It breaks your request into steps, does the research, organizes what it finds, and uses the services you've connected where they're supported.",
     art: (
       <Frame>
         <p className="font-bold">Plan</p>
@@ -79,8 +79,8 @@ const steps = [
     ),
   },
   {
-    title: "Stay in control.",
-    body: "Orbit asks for your approval before anything consequential: submissions, bookings, purchases and messages sent in your name. You can change the plan or say no.",
+    title: "You stay in control.",
+    body: "Important actions need your authorization first: bookings, purchases, submissions and messages sent in your name. You can change the plan or say no.",
     art: (
       <Frame>
         <p className="text-sm font-semibold text-muted">Needs your approval</p>
@@ -95,8 +95,8 @@ const steps = [
     ),
   },
   {
-    title: "Follow the outcome.",
-    body: "Orbit is being designed to keep track of progress, pick up where it left off if something interrupts it, and show you evidence of what it did.",
+    title: "See what gets done.",
+    body: "Follow progress as Orbit works, and see the outcome: what was done, what's left and the confirmations to prove it.",
     art: (
       <Frame>
         <ol className="grid gap-4">
@@ -148,6 +148,31 @@ export default function HowItWorksPage() {
               </li>
             ))}
           </ol>
+        </Container>
+      </Section>
+
+      <Section aria-labelledby="direction-title" spacing="md" className="border-t border-line">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
+          <div>
+            <h2 id="direction-title" className="text-2xl font-bold tracking-[-0.025em] sm:text-3xl">
+              Where it&apos;s going
+            </h2>
+            <p className="mt-3">
+              <Tag>Future</Tag>
+            </p>
+          </div>
+          <div className="max-w-[40rem] space-y-5 text-lg leading-relaxed text-body">
+            <p>
+              Over time, Orbit is being designed to handle several things at once. A bigger request, like moving city,
+              could be split into parts that progress side by side: searching for flats, comparing removal quotes and
+              updating your address.
+            </p>
+            <p>
+              Behind the scenes that may mean several coordinated helpers. For you it stays simple: one Orbit, one
+              conversation, one place to approve and follow everything. This is the product direction, not a feature
+              available today.
+            </p>
+          </div>
         </Container>
       </Section>
 

@@ -14,7 +14,7 @@ import {
 export const MIN_FILL_MS = 1500;
 
 export const MESSAGES = {
-  waitlistJoined: "You're on the list. We'll be in touch when your invite is ready.",
+  waitlistJoined: "You're on the list. We'll be in touch as places in the private beta open up.",
   waitlistDuplicate: "You're already on the list, so there's nothing more to do.",
   interestReceived: "Thanks — we've got it. If there's a fit, we'll reply by email.",
   invalid: "Check the highlighted fields and try again.",

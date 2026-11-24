@@ -5,37 +5,44 @@ export const site = {
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://justtellorbit.com").replace(/\/$/, ""),
   description:
     "Orbit is the personal AI being built to go beyond answers and help you get things done across your life and work. Just Tell Orbit. Join the private beta waitlist.",
-  // TODO before launch: confirm these mailboxes exist.
-  contactEmail: "hello@justtellorbit.com",
+  /** One-line description used in the footer. */
+  short: "The personal AI being built to help you get things done across your life and work.",
+  /**
+   * Public contact address. Leave empty until the mailbox exists and is
+   * monitored: the footer hides Contact and the privacy page says contact
+   * details are coming, rather than showing an address nobody reads.
+   */
+  contactEmail: "",
 } as const;
 
+export const productNav = [
+  { href: "/capabilities", label: "Capabilities", note: "What Orbit is being built to do" },
+  { href: "/how-it-works", label: "How it works", note: "Tell, plan, approve, done" },
+] as const;
+
 export const nav = [
-  { href: "/capabilities", label: "Capabilities" },
-  { href: "/how-it-works", label: "How it works" },
   { href: "/about", label: "About" },
   { href: "/careers", label: "Careers" },
 ] as const;
 
 /**
- * Social profiles. Leave url empty until an account exists and is verified;
- * the footer lists empty ones as "coming soon" without a link.
+ * Social profiles. Only verified, active URLs belong here: an entry with an
+ * empty url is not shown anywhere on the site.
  */
-export const social: { label: string; url: string }[] = [
+export const social: { label: "X" | "LinkedIn" | "Instagram" | "YouTube"; url: string }[] = [
   { label: "X", url: "" },
   { label: "LinkedIn", url: "" },
   { label: "Instagram", url: "" },
   { label: "YouTube", url: "" },
 ];
 
-/**
- * Launch features that have a place in the structure but are deliberately not
- * built yet. Flip a flag when the route exists; the sitemap reads from here.
- */
+/** Launch features with a place in the structure but deliberately not built yet. */
 export const features = {
-  updates: false, // /updates — blog, announcements, launch videos
-  docs: false, // /docs — product documentation
-  terms: false, // /terms — add when the product has terms of service
-  betaInvites: false, // /invite/[code] — uses waitlist_signups.invite_status
+  updates: false, // /updates: blog, announcements, launch videos
+  docs: false, // /docs: product documentation
+  terms: false, // /terms: when the product has terms of service
+  trust: false, // /trust: only once real safeguards can be described accurately
+  betaInvites: false, // /invite/[code]: uses waitlist_signups.invite_status
   referrals: false, // ?ref=CODE is already captured into waitlist_signups.referred_by
 } as const;
 

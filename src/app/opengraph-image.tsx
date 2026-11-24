@@ -25,7 +25,6 @@ export default async function OpengraphImage() {
           color: "#0d0d12",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={iconSrc} width={132} height={132} alt="" style={{ borderRadius: 30 }} />
         <div style={{ marginTop: 44, fontSize: 92, fontWeight: 700, letterSpacing: -4 }}>Just Tell Orbit.</div>
         <div style={{ marginTop: 18, fontSize: 32, color: "#4f5160" }}>
