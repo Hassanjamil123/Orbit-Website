@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Local waitlist data (file storage driver) — contains personal data
+data/
+
+# Environment — never commit real secrets
+.env
+.env.local
+.env.*.local
+
+.DS_Store
+.vercel

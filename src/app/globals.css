@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/*
+ * Satoshi (Indian Type Foundry, via Fontshare) is free for personal and commercial
+ * use under the ITF Free Font License. Place the WOFF2 files in public/fonts/
+ * (see public/fonts/README.md). Until then the system stack below is used.
+ */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+ * Design tokens. The accent is sampled from the supplied Orbit logo artwork
+ * (the violet at the base of the ring) and darkened slightly so white text on
+ * it meets WCAG AA. Confirm against the official brand hex when available.
+ */
+@theme {
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-canvas: #ffffff;      /* page */
+  --color-mist: #f7f7f9;        /* alternate bands, field fills */
+  --color-line: #e7e7ec;        /* hairlines and borders */
+  --color-ink: #0d0d12;         /* headings */
+  --color-body: #4f5160;        /* supporting text (8.1:1 on white) */
+  --color-muted: #6e7080;       /* captions, labels (5.0:1 on white) */
+  --color-violet: #7b35e8;      /* accent: buttons, links, small marks (5.9:1 with white) */
+  --color-violet-deep: #6224cc; /* hover */
+  --color-violet-soft: #f3edfe; /* tints */
+  --color-ring-from: #b04cf4;   /* logo ring, magenta end */
+  --color-ring-to: #6351f8;     /* logo ring, blue-violet end */
+  --color-danger: #b42335;
+  --color-success: #12795a;
+
+  --text-hero: clamp(2.9rem, 8.2vw, 6.4rem);
+  --text-hero--line-height: 0.98;
+  --text-hero--letter-spacing: -0.045em;
+  --text-title: clamp(2.2rem, 4.6vw, 3.6rem);
+  --text-title--line-height: 1.04;
+  --text-title--letter-spacing: -0.035em;
+  --text-lead: clamp(1.125rem, 1.6vw, 1.3rem);
+  --text-lead--line-height: 1.6;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+  ::selection {
+    background: var(--color-violet-soft);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-violet);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
