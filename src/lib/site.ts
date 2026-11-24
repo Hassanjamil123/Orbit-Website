@@ -4,9 +4,9 @@ export const site = {
   domain: "justtellorbit.com",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://justtellorbit.com").replace(/\/$/, ""),
   description:
-    "Orbit is the personal AI being built to go beyond answers and help you get things done across your life and work. Just Tell Orbit. Join the private beta waitlist.",
+    "Just Tell Orbit. A personal AI built to do more than answer: it researches, plans, organizes, creates and takes action across your life and work, with your approval when it matters. Join the private beta waitlist.",
   /** One-line description used in the footer. */
-  short: "The personal AI being built to help you get things done across your life and work.",
+  short: "A personal AI built to do more than answer: it researches, plans and takes action, with your approval.",
   /**
    * Public contact address. Leave empty until the mailbox exists and is
    * monitored: the footer hides Contact and the privacy page says contact

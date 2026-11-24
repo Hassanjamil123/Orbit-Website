@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export function inputClass(invalid: boolean) {
   return [
-    "w-full rounded-2xl border bg-canvas px-4 text-base text-ink outline-none transition-colors duration-150",
+    "w-full rounded-[6px] border bg-canvas px-4 text-base text-ink outline-none transition-colors duration-150",
     "placeholder:text-muted focus:border-violet focus:ring-4 focus:ring-violet/10",
     invalid ? "border-danger" : "border-line hover:border-ink/25",
   ].join(" ");

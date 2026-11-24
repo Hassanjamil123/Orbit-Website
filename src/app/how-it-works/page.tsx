@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 function Frame({ children }: { children: ReactNode }) {
   return (
-    <figure className="rounded-3xl border border-line bg-mist p-5 sm:p-7">
-      <div className="rounded-2xl border border-line bg-canvas p-5 shadow-[0_1px_2px_rgba(13,13,18,0.04)] sm:p-6">{children}</div>
+    <figure className="rounded-xl border border-line bg-mist p-5 sm:p-7">
+      <div className="rounded-lg border border-line bg-canvas p-5 shadow-[0_1px_2px_rgba(13,13,18,0.04)] sm:p-6">{children}</div>
       <figcaption className="mt-3 px-1 text-sm text-muted">Illustration of the intended experience</figcaption>
     </figure>
   );
@@ -44,12 +44,12 @@ const steps = [
     body: "Describe what you want to get done, the way you would to a capable friend. No commands to learn. If something's unclear, Orbit asks.",
     art: (
       <Frame>
-        <p className="ml-auto max-w-[90%] rounded-2xl rounded-br-md bg-ink px-4 py-3 leading-snug text-white">
+        <p className="ml-auto max-w-[90%] rounded-lg rounded-br-sm bg-ink px-4 py-3 leading-snug text-white">
           I&apos;m speaking at a conference in Dubai on the 14th. Find me a good flight, nothing too early.
         </p>
         <div className="mt-4 flex items-start gap-3">
           <AppIcon size={28} />
-          <p className="rounded-2xl rounded-tl-md bg-mist px-4 py-3 leading-snug text-ink">
+          <p className="rounded-lg rounded-tl-sm bg-mist px-4 py-3 leading-snug text-ink">
             Flying from London? And would you rather arrive the day before?
           </p>
         </div>
@@ -87,9 +87,9 @@ const steps = [
         <p className="mt-2 text-lg font-bold tracking-[-0.02em]">Book the 10:05 direct flight on 13 December?</p>
         <p className="mt-1 text-body">Arrives 20:40 local time. Checked bag included.</p>
         <div className="mt-5 flex flex-wrap gap-2">
-          <span className="inline-flex h-10 items-center rounded-full bg-violet px-5 text-sm font-semibold text-white">Approve</span>
-          <span className="inline-flex h-10 items-center rounded-full border border-line px-5 text-sm font-semibold">Change</span>
-          <span className="inline-flex h-10 items-center rounded-full px-3 text-sm font-semibold text-muted">Not now</span>
+          <span className="inline-flex h-10 items-center rounded-[6px] bg-violet px-5 text-sm font-semibold text-white">Approve</span>
+          <span className="inline-flex h-10 items-center rounded-[6px] border border-violet px-5 text-violet text-sm font-semibold">Change</span>
+          <span className="inline-flex h-10 items-center rounded-[6px] px-3 text-sm font-semibold text-muted">Not now</span>
         </div>
       </Frame>
     ),
@@ -131,7 +131,7 @@ export default function HowItWorksPage() {
     <>
       <PageIntro
         title="You say what you need. Orbit helps make it happen."
-        lead="No complicated software to learn and no separate assistants to manage. Here's the experience Orbit is being built around, in four steps."
+        lead="No complicated software to learn and no separate assistants to manage. Here's how Orbit takes a request from your words to a finished result, in four steps."
       />
 
       <Section aria-label="Four steps">
@@ -158,7 +158,7 @@ export default function HowItWorksPage() {
               Where it&apos;s going
             </h2>
             <p className="mt-3">
-              <Tag>Future</Tag>
+              <Tag>Coming later</Tag>
             </p>
           </div>
           <div className="max-w-[40rem] space-y-5 text-lg leading-relaxed text-body">

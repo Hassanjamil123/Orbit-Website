@@ -15,8 +15,8 @@ export default function CapabilitiesPage() {
   return (
     <>
       <PageIntro
-        title="One Orbit for everything you'd ask for help with."
-        lead="Orbit is being built to work across the whole of your life, not one corner of it. Here's the scope of that ambition, and an honest view of what comes first."
+        title="One Orbit for everything you want done."
+        lead="Orbit is built to research, plan and take action across the whole of your life, not one corner of it. Here's the full scope, and an honest view of what the private beta includes."
       >
         <dl className="mt-12 grid max-w-2xl gap-5 sm:grid-cols-2">
           <div className="flex items-start gap-3">
@@ -24,7 +24,7 @@ export default function CapabilitiesPage() {
               <Tag tone="accent">{stageLabel.beta}</Tag>
             </dt>
             <dd className="text-[0.95rem] leading-relaxed text-body">
-              Being developed for the private beta: research, planning, drafting and remembering your context.
+              Being built for the private beta: research, planning, drafting and real actions where a service is supported, with your approval for anything consequential.
             </dd>
           </div>
           <div className="flex items-start gap-3">
@@ -32,7 +32,7 @@ export default function CapabilitiesPage() {
               <Tag>{stageLabel.later}</Tag>
             </dt>
             <dd className="text-[0.95rem] leading-relaxed text-body">
-              Broader capabilities for later, including acting on your behalf, always with your approval.
+              Planned after the private beta, as Orbit connects to more services and takes on longer-running work.
             </dd>
           </div>
         </dl>
@@ -59,7 +59,7 @@ export default function CapabilitiesPage() {
             ))}
           </div>
 
-          <section aria-labelledby="more-title" className="mt-24 rounded-3xl border border-line bg-mist p-7 sm:p-10">
+          <section aria-labelledby="more-title" className="mt-24 rounded-xl border border-line bg-mist p-7 sm:p-10">
             <div className="flex flex-wrap items-center gap-3">
               <h2 id="more-title" className="text-2xl font-bold tracking-[-0.025em] sm:text-3xl">
                 Further ahead

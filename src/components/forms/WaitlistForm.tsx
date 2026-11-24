@@ -54,7 +54,7 @@ export function WaitlistForm({ source, align = "left" }: Props) {
         ref={doneRef}
         tabIndex={-1}
         role="status"
-        className={`w-full max-w-xl rounded-3xl border border-line bg-canvas p-6 text-left shadow-[0_1px_2px_rgba(13,13,18,0.04)] outline-none sm:p-7 ${center ? "mx-auto" : ""}`}
+        className={`w-full max-w-xl rounded-xl border border-line bg-canvas p-6 text-left shadow-[0_1px_2px_rgba(13,13,18,0.04)] outline-none sm:p-7 ${center ? "mx-auto" : ""}`}
       >
         <div className="flex items-start gap-4">
           <span
@@ -125,7 +125,7 @@ export function WaitlistForm({ source, align = "left" }: Props) {
               Joining…
             </>
           ) : (
-            "Join the waitlist"
+            "Join the Waitlist"
           )}
         </button>
       </div>

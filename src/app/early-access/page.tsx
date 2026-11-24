@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { WaitlistForm } from "@/components/forms/WaitlistForm";
-import { AppIcon } from "@/components/Logo";
+import { HeroSpace } from "@/components/HeroSpace";
 import { Container } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -11,10 +11,7 @@ export const metadata: Metadata = {
 };
 
 const expectations = [
-  {
-    title: "Just your email",
-    body: "No account, no password, no questionnaire.",
-  },
+  { title: "Just your email", body: "No account, no password, no questionnaire." },
   {
     title: "Invites in small groups",
     body: "We're opening Orbit gradually. Joining the waitlist doesn't guarantee immediate access.",
@@ -27,20 +24,28 @@ const expectations = [
 
 export default function EarlyAccessPage() {
   return (
-    <section aria-labelledby="early-title" className="pb-28 pt-16 sm:pb-36 sm:pt-24">
-      <Container className="flex flex-col items-center text-center">
-        <AppIcon size={72} className="shadow-[0_18px_40px_-18px_rgba(98,36,204,0.55)]" />
-        <h1 id="early-title" className="mt-10 max-w-3xl text-hero font-bold text-balance">
-          Join the private beta.
-        </h1>
-        <p className="mt-8 max-w-[34rem] text-lead text-body">
-          Orbit is preparing for a private beta. Leave your email and we&apos;ll be in touch as places open up.
-        </p>
-        <div className="mt-12 w-full">
-          <WaitlistForm source="early-access" align="center" />
+    <section aria-labelledby="early-title" className="pb-24 pt-12 sm:pb-32 sm:pt-16 lg:pt-20">
+      <Container>
+        <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+          <div>
+            <h1 id="early-title" className="text-display font-bold uppercase">
+              Join the
+              <br />
+              private beta.
+            </h1>
+            <p className="mt-8 max-w-[34rem] text-lead text-body">
+              Orbit is preparing for a private beta that goes beyond chat: research, planning, drafting and real actions
+              where supported, with your approval for anything that matters. Leave your email and we&apos;ll be in touch
+              as places open up.
+            </p>
+            <div className="mt-10">
+              <WaitlistForm source="early-access" />
+            </div>
+          </div>
+          <HeroSpace />
         </div>
 
-        <ul className="mt-20 grid w-full max-w-4xl gap-10 border-t border-line pt-12 text-left sm:grid-cols-3">
+        <ul className="mt-20 grid gap-10 border-t border-line pt-12 sm:grid-cols-3">
           {expectations.map((e) => (
             <li key={e.title}>
               <h2 className="text-lg font-bold tracking-[-0.02em]">{e.title}</h2>

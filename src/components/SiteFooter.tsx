@@ -67,7 +67,7 @@ export function SiteFooter() {
       </Container>
       <Container className="flex flex-col gap-2 border-t border-line py-6 text-sm text-muted sm:flex-row sm:justify-between">
         <p>© {new Date().getFullYear()} Orbit. All rights reserved.</p>
-        <p>Orbit is in development. Features described on this site are not yet available.</p>
+        <p>Orbit is preparing for private beta. Capabilities described here are in development.</p>
       </Container>
     </footer>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
+import { HeroSpace } from "./HeroSpace";
 
 /* Shared layout and action primitives. Every page is built from these. */
 
@@ -20,18 +21,18 @@ export function Section({ tone = "canvas", spacing = "lg", className = "", child
 }
 
 const buttonBase =
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-70";
+  "inline-flex items-center justify-center gap-2 rounded-[6px] font-semibold whitespace-nowrap tracking-[-0.005em] transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-70";
 
 const variants = {
-  primary: "bg-violet text-white hover:bg-violet-deep",
-  secondary: "border border-line bg-canvas text-ink hover:border-ink/40",
+  primary: "border border-violet bg-violet text-white hover:border-violet-deep hover:bg-violet-deep",
+  secondary: "border border-violet bg-canvas text-violet hover:bg-violet-soft",
   quiet: "text-ink hover:text-violet",
 } as const;
 
 const sizes = {
-  sm: "h-10 px-4 text-[0.9rem]",
+  sm: "h-10 px-4 text-[0.92rem]",
   md: "h-12 px-6 text-[0.98rem]",
-  lg: "h-14 px-7 text-base",
+  lg: "h-14 px-8 text-[1.02rem]",
 } as const;
 
 export type ButtonVariant = keyof typeof variants;
@@ -105,11 +106,14 @@ export function Heading({
 /** Opening block for every inner page. */
 export function PageIntro({ title, lead, children }: { title: ReactNode; lead: ReactNode; children?: ReactNode }) {
   return (
-    <section className="border-b border-line pb-20 pt-16 sm:pb-24 sm:pt-24">
-      <Container>
-        <h1 className="max-w-4xl text-hero font-bold text-balance">{title}</h1>
-        <p className="mt-8 max-w-[38rem] text-lead text-body">{lead}</p>
-        {children}
+    <section className="border-b border-line pb-20 pt-14 sm:pb-24 sm:pt-20">
+      <Container className="grid items-center gap-12 lg:grid-cols-[1fr_20rem] lg:gap-20">
+        <div>
+          <h1 className="max-w-4xl text-hero font-bold text-balance">{title}</h1>
+          <p className="mt-8 max-w-[38rem] text-lead text-body">{lead}</p>
+          {children}
+        </div>
+        <HeroSpace compact className="hidden lg:block" />
       </Container>
     </section>
   );
@@ -118,5 +122,5 @@ export function PageIntro({ title, lead, children }: { title: ReactNode; lead: R
 /** Small status tag. Used to mark beta focus vs longer-term ambition. */
 export function Tag({ tone = "neutral", children }: { tone?: "accent" | "neutral"; children: ReactNode }) {
   const t = tone === "accent" ? "bg-violet-soft text-violet-deep" : "bg-mist text-muted border border-line";
-  return <span className={`inline-flex h-6 items-center rounded-full px-2.5 text-xs font-semibold ${t}`}>{children}</span>;
+  return <span className={`inline-flex h-6 items-center rounded-[4px] px-2 text-xs font-semibold ${t}`}>{children}</span>;
 }

@@ -2,50 +2,51 @@
  * Product content in one place, so the founders can correct it without touching layout.
  *
  * Stage labels describe intent, not shipped features:
- *   "beta"  — being developed for the private beta (research, planning, drafting, continuity)
- *   "later" — a broader future capability (Orbit acting on your behalf)
- * The split follows one rule: helping you decide is early; doing it for you is later.
- * CONFIRM WITH THE FOUNDERS before launch.
+ *   "beta"  — being built for the private beta. This includes real actions where a
+ *             service is supported, always with approval for anything consequential.
+ *   "later" — planned after the private beta.
+ * CONFIRM WITH THE FOUNDERS before launch: which actions and services the beta will
+ * actually support. See docs/DECISIONS.md.
  */
 
 export type Stage = "beta" | "later";
 
 export const stageLabel: Record<Stage, string> = {
-  beta: "Private beta focus",
-  later: "Future",
+  beta: "Private beta",
+  later: "Coming later",
 };
 
-/** Homepage requests. Each is something Orbit is being built to help with. */
+/** Homepage requests: things you'll be able to tell Orbit to get done. */
 export const requests = [
-  { text: "Find me the best flight to Dubai.", domain: "Travel" },
-  { text: "Help me apply to university.", domain: "Education" },
-  { text: "Compare laptops within my budget.", domain: "Shopping" },
-  { text: "Research this business idea.", domain: "Research" },
-  { text: "Arrange an appointment for tomorrow.", domain: "Health" },
-  { text: "Help me create a video.", domain: "Creators" },
-  { text: "Organize everything I need to do this week.", domain: "Productivity" },
+  { text: "Find the best flight to Dubai next week and help me book it.", domain: "Travel" },
+  { text: "Help me prepare my university application and keep track of deadlines.", domain: "Education" },
+  { text: "Compare the best laptops for my budget and narrow them down for me.", domain: "Shopping" },
+  { text: "Research this business idea and turn it into a clear plan.", domain: "Research" },
+  { text: "Find a suitable appointment and help me arrange it.", domain: "Health" },
+  { text: "Help me plan, create and organize a video project.", domain: "Creators" },
+  { text: "Organize my week and keep track of everything I need to get done.", domain: "Productivity" },
 ] as const;
 
 /** "Beyond answers": what makes Orbit different from a chatbot. */
 export const differences: { title: string; body: string; stage: Stage }[] = [
   {
-    title: "It acts, not just answers",
-    body: "Orbit is being built to take the next step for you: fill in the form, make the booking, send the message, once you've approved it.",
-    stage: "later",
-  },
-  {
-    title: "It works with your services",
-    body: "Connect the apps and accounts you choose, like your calendar or email, and Orbit can work with them instead of telling you what to click.",
-    stage: "later",
-  },
-  {
-    title: "It remembers the context",
-    body: "Your preferences, plans and past requests carry over, so you don't start from zero every time.",
+    title: "It takes action",
+    body: "Orbit doesn't stop at a list of options. Where a service is supported, it can make the booking, fill in the form or send the message, once you've approved it.",
     stage: "beta",
   },
   {
-    title: "You can hand work over",
-    body: "Give Orbit a bigger job, like planning a trip or preparing an application, and it breaks it into steps and keeps it moving.",
+    title: "It works with your services",
+    body: "Connect the accounts you choose, like your calendar or email, and Orbit works with them directly instead of telling you what to click.",
+    stage: "beta",
+  },
+  {
+    title: "It keeps the context",
+    body: "Your preferences, plans and earlier requests carry over, so you never start from zero.",
+    stage: "beta",
+  },
+  {
+    title: "It sees work through",
+    body: "Hand over a bigger job and Orbit breaks it into steps, keeps it moving and shows you what's done and what's left.",
     stage: "beta",
   },
 ];
@@ -61,7 +62,7 @@ export const domains: Domain[] = [
     name: "Research and knowledge",
     summary: "Get to the bottom of a question without twenty open tabs.",
     examples: [
-      { text: "Research a business idea and size up the market.", stage: "beta" },
+      { text: "Research a business idea and turn it into a clear plan.", stage: "beta" },
       { text: "Summarize what's known about a topic, with sources.", stage: "beta" },
       { text: "Keep watch on a subject and brief you when something changes.", stage: "later" },
     ],
@@ -72,7 +73,7 @@ export const domains: Domain[] = [
     examples: [
       { text: "Compare laptops within your budget and explain the trade-offs.", stage: "beta" },
       { text: "Find a gift that matches what someone actually likes.", stage: "beta" },
-      { text: "Place the order and track delivery once you approve.", stage: "later" },
+      { text: "Place the order once you approve it.", stage: "beta" },
     ],
   },
   {
@@ -81,7 +82,7 @@ export const domains: Domain[] = [
     examples: [
       { text: "Find the best flight to Dubai for your dates and budget.", stage: "beta" },
       { text: "Build a day-by-day itinerary around what you enjoy.", stage: "beta" },
-      { text: "Book flights and hotels, and rebook if plans change.", stage: "later" },
+      { text: "Book the flight you choose, with your approval.", stage: "beta" },
     ],
   },
   {
@@ -90,14 +91,14 @@ export const domains: Domain[] = [
     examples: [
       { text: "Shortlist universities and lay out every deadline.", stage: "beta" },
       { text: "Tailor your CV and cover letter to a specific role.", stage: "beta" },
-      { text: "Complete and submit applications after your review.", stage: "later" },
+      { text: "Fill in and submit applications after your review.", stage: "later" },
     ],
   },
   {
     name: "Creators and content production",
     summary: "More time making things, less time on everything around them.",
     examples: [
-      { text: "Turn an idea into a script, shot list and description.", stage: "beta" },
+      { text: "Plan, script and organize a video project.", stage: "beta" },
       { text: "Plan a month of posts around what your audience responds to.", stage: "beta" },
       { text: "Help produce and publish a video across your channels.", stage: "later" },
     ],
@@ -108,7 +109,7 @@ export const domains: Domain[] = [
     examples: [
       { text: "Prepare questions to ask at your next appointment.", stage: "beta" },
       { text: "Build a realistic routine around your week.", stage: "beta" },
-      { text: "Arrange an appointment and keep the reminders coming.", stage: "later" },
+      { text: "Find a suitable appointment and help you arrange it.", stage: "beta" },
     ],
   },
   {
@@ -124,9 +125,9 @@ export const domains: Domain[] = [
     name: "Productivity and life admin",
     summary: "A clearer week, and fewer things slipping through.",
     examples: [
-      { text: "Organize everything you need to do this week.", stage: "beta" },
+      { text: "Organize your week and keep track of what needs doing.", stage: "beta" },
       { text: "Make a moving checklist with every deadline.", stage: "beta" },
-      { text: "Reschedule, renew and follow up on loose ends for you.", stage: "later" },
+      { text: "Add plans to your calendar and set reminders, with your approval.", stage: "beta" },
     ],
   },
   {
@@ -135,7 +136,7 @@ export const domains: Domain[] = [
     examples: [
       { text: "Draft a difficult email in your voice.", stage: "beta" },
       { text: "Summarize a long thread and what's expected of you.", stage: "beta" },
-      { text: "Send replies and coordinate times once you approve.", stage: "later" },
+      { text: "Send replies and coordinate times once you approve.", stage: "beta" },
     ],
   },
   {

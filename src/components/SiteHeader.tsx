@@ -7,7 +7,7 @@ import { nav, productNav } from "@/lib/site";
 import { Logo } from "./Logo";
 import { ButtonLink } from "./ui";
 
-const linkBase = "rounded-full px-3.5 py-2 text-[0.95rem] font-medium transition-colors";
+const linkBase = "relative rounded-[6px] px-4 py-2 text-[0.95rem] font-medium transition-colors";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -56,12 +56,12 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-line/80 bg-canvas/90 backdrop-blur-md">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-[6px] focus:bg-ink focus:px-4 focus:py-2 focus:text-white"
       >
         Skip to content
       </a>
-      <div className="mx-auto flex h-[4.25rem] w-full max-w-[74rem] items-center justify-between gap-6 px-5 sm:px-8">
-        <Link href="/" aria-label="Orbit home" className="shrink-0 rounded-md">
+      <div className="mx-auto grid h-[4.5rem] w-full max-w-[74rem] grid-cols-[1fr_auto] items-center gap-6 px-5 sm:px-8 md:grid-cols-[1fr_auto_1fr]">
+        <Link href="/" aria-label="Orbit home" className="justify-self-start rounded-md">
           <Logo height={30} priority />
         </Link>
 
@@ -79,7 +79,7 @@ export function SiteHeader() {
               aria-expanded={productOpen}
               aria-controls="product-menu"
               onClick={() => setProductOpen((v) => !v)}
-              className={`${linkBase} inline-flex items-center gap-1.5 ${productActive ? "text-ink" : "text-body hover:text-ink"}`}
+              className={`${linkBase} inline-flex items-center gap-1.5 ${productActive ? "text-ink after:absolute after:inset-x-4 after:-bottom-[1.05rem] after:h-[2px] after:bg-violet" : "text-body hover:text-ink"}`}
             >
               Product
               <svg
@@ -96,14 +96,14 @@ export function SiteHeader() {
             <ul
               id="product-menu"
               hidden={!productOpen}
-              className="absolute left-0 top-full mt-2 w-72 rounded-2xl border border-line bg-canvas p-2 shadow-[0_12px_32px_-12px_rgba(13,13,18,0.18)]"
+              className="absolute left-1/2 top-full mt-3 w-72 -translate-x-1/2 rounded-lg border border-line bg-canvas p-2 shadow-[0_12px_32px_-12px_rgba(13,13,18,0.18)]"
             >
               {productNav.map((p) => (
                 <li key={p.href}>
                   <Link
                     href={p.href}
                     aria-current={isActive(p.href) ? "page" : undefined}
-                    className="block rounded-xl px-4 py-3 transition-colors hover:bg-mist"
+                    className="block rounded-[6px] px-4 py-3 transition-colors hover:bg-mist"
                   >
                     <span className="block font-semibold text-ink">{p.label}</span>
                     <span className="block text-sm text-muted">{p.note}</span>
@@ -117,17 +117,20 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className={`${linkBase} ${isActive(item.href) ? "text-ink" : "text-body hover:text-ink"}`}
+              className={`${linkBase} ${isActive(item.href) ? "text-ink after:absolute after:inset-x-4 after:-bottom-[1.05rem] after:h-[2px] after:bg-violet" : "text-body hover:text-ink"}`}
             >
               {item.label}
             </Link>
           ))}
-          <ButtonLink href="/early-access" size="sm" className="ml-3">
-            Join the waitlist
-          </ButtonLink>
         </nav>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="hidden justify-self-end md:block">
+          <ButtonLink href="/early-access" size="sm">
+            Join the Waitlist
+          </ButtonLink>
+        </div>
+
+        <div className="flex items-center gap-2 justify-self-end md:hidden">
           <ButtonLink href="/early-access" size="sm">
             Join waitlist
           </ButtonLink>
@@ -137,7 +140,7 @@ export function SiteHeader() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             onClick={() => setMenuOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-line text-ink"
+            className="grid h-10 w-10 place-items-center rounded-[6px] border border-line text-ink"
           >
             <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
             <svg viewBox="0 0 20 20" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">

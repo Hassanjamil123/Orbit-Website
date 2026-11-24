@@ -130,7 +130,7 @@ export default function CareersPage() {
       <Section aria-labelledby="apply-title" id="apply">
         <Container className="grid gap-14 lg:grid-cols-[1fr_1.35fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-3xl border border-line bg-mist p-7 sm:p-9">
+            <div className="rounded-xl border border-line bg-mist p-7 sm:p-9">
               <h2 className="text-2xl font-bold tracking-[-0.025em]">Before you get in touch</h2>
               <ul className="mt-6 grid gap-4">
                 {honesty.map((line) => (

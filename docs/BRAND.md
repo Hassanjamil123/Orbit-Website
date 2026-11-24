@@ -13,7 +13,7 @@ extracted from them by script. Nothing was redrawn, traced or regenerated.
 | `orbit-logo-dark.(png\|webp)` | **B. Dark-background horizontal logo**: original flat ring + white wordmark, transparent | Available for dark placements | Same tile, colour-to-alpha only; ring kept exactly as supplied, glint included. |
 | `orbit-icon-flat.(png\|webp)` | **C. Flat icon, for light surfaces** | Small UI placements | Ring from (A). |
 | `orbit-icon-flat-on-dark.(png\|webp)` | **C. Flat icon, original** | Dark surfaces | Ring from (B). |
-| `orbit-icon-glow.(png\|webp)` | **D. Glowing icon**, transparent | Dark promotional contexts only | Ring from the supplied horizontal logo, colour-to-alpha against its background, glow preserved. |
+| `orbit-icon-glow.(png\|webp)` | **D. Glowing icon**, transparent | Hero space panel, page intros, closing panel (dark surfaces only) | Ring from the supplied horizontal logo, colour-to-alpha against its background, glow preserved. |
 | `orbit-app-icon-ring.png` | Ring-only dark app icon | Source for the favicon | "App icon / dark" tile on the brand sheet, cropped, corners made transparent. |
 | `orbit-app-icon-256.(png\|webp)`, `-180.png` | Dark app icon with wordmark | Page heroes, social card, Apple touch icon | Supplied app-icon image, cropped to its rounded square. |
 | `orbit-primary-*.webp` | Primary logo on black | Not placed | Resized from the supplied primary logo. |
@@ -39,7 +39,7 @@ All were checked on white, off-white, near-black and deep-violet surfaces, and a
 
 Accent `#7b35e8` was sampled from the violet at the base of the logo ring and darkened
 slightly so white button text passes WCAG AA (5.9:1). Ring ends `#b04cf4` and `#6351f8` are used
-only for the thin rule under the closing "Just Tell Orbit.". Please confirm against official hex values.
+in the dark space panels. Please confirm against official hex values.
 
 ## Type
 

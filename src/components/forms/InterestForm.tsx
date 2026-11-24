@@ -90,7 +90,7 @@ export function InterestForm() {
 
   if (state.status === "success") {
     return (
-      <div ref={doneRef} tabIndex={-1} role="status" className="rounded-3xl border border-line bg-mist p-8 outline-none sm:p-10">
+      <div ref={doneRef} tabIndex={-1} role="status" className="rounded-xl border border-line bg-mist p-8 outline-none sm:p-10">
         <p className="text-2xl font-bold tracking-[-0.03em]">Thanks, {values.name.split(" ")[0]}.</p>
         <p className="mt-3 max-w-prose text-lg text-body">{state.message}</p>
       </div>
@@ -161,7 +161,7 @@ export function InterestForm() {
           {values.message.length > MESSAGE_MAX - 200 ? `${MESSAGE_MAX - values.message.length} characters left` : ""}
         </p>
       </Field>
-      <div className="grid gap-4 rounded-3xl border border-line bg-mist p-5">
+      <div className="grid gap-4 rounded-xl border border-line bg-mist p-5">
         <Checkbox id={id("terms")} name="terms" checked={terms} onChange={setTerms} error={errors.terms}>
           {INTEREST_TERMS_TEXT}
         </Checkbox>
