@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero: centred over the full-bleed space scene */}
-      <section aria-labelledby="hero-title" className="relative isolate overflow-hidden text-white">
+      <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
         <HeroBackdrop />
         <Container className="flex min-h-[40rem] flex-col items-center justify-center py-24 text-center sm:min-h-[46rem] lg:min-h-[50rem]">
           <h1 id="hero-title" className="text-display font-bold uppercase">
@@ -36,7 +36,7 @@ export default function HomePage() {
             <br />
             Orbit.
           </h1>
-          <p className="mt-8 max-w-[34rem] text-lead text-white/75">
+          <p className="mt-8 max-w-[34rem] text-lead text-body">
             Orbit is a personal AI built to do more than answer. It researches, plans, organizes, creates and takes
             action across your life and work, always with your approval when it matters.
           </p>
@@ -48,12 +48,12 @@ export default function HomePage() {
               Explore Orbit
             </ButtonLink>
           </div>
-          <p className="mt-6 text-sm text-white/55">Private beta waitlist. No account needed, just your email.</p>
+          <p className="mt-6 text-sm text-muted">Private beta waitlist. No account needed, just your email.</p>
         </Container>
       </section>
 
       {/* Relatable, action-oriented examples */}
-      <Section aria-labelledby="examples-title" id="examples">
+      <Section aria-labelledby="examples-title" id="examples" className="border-t border-line">
         <Container className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:self-start">
             <Heading

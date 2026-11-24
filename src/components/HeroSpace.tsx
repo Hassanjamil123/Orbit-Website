@@ -41,21 +41,23 @@ function Figure({ p }: { p: Paint }) {
   );
 }
 
-function Astronaut({ id }: { id: string }) {
+function Astronaut({ id, light = false }: { id: string; light?: boolean }) {
   const rim: Paint = { suit: "#b9a2ff", limb: "#b9a2ff", pack: "#8f73ff" };
-  const body: Paint = { suit: `url(#${id}-suit)`, limb: `url(#${id}-limb)`, pack: "#1d1a2c" };
+  const body: Paint = { suit: `url(#${id}-suit)`, limb: `url(#${id}-limb)`, pack: light ? "#c9c5d8" : "#1d1a2c" };
+  const suit = light ? ["#ffffff", "#e4e1ee", "#a8a3bd"] : ["#8b86a3", "#4a4661", "#1c1a29"];
+  const limb = light ? ["#ffffff", "#d6d2e3", "#9792ad"] : ["#7d7896", "#3f3b55", "#191725"];
   return (
     <svg viewBox="0 0 120 150" className="h-full w-full overflow-visible">
       <defs>
         <linearGradient id={`${id}-suit`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#8b86a3" />
-          <stop offset="0.45" stopColor="#4a4661" />
-          <stop offset="1" stopColor="#1c1a29" />
+          <stop offset="0" stopColor={suit[0]} />
+          <stop offset="0.45" stopColor={suit[1]} />
+          <stop offset="1" stopColor={suit[2]} />
         </linearGradient>
         <linearGradient id={`${id}-limb`} gradientUnits="userSpaceOnUse" x1="20" y1="30" x2="100" y2="145">
-          <stop offset="0" stopColor="#7d7896" />
-          <stop offset="0.5" stopColor="#3f3b55" />
-          <stop offset="1" stopColor="#191725" />
+          <stop offset="0" stopColor={limb[0]} />
+          <stop offset="0.5" stopColor={limb[1]} />
+          <stop offset="1" stopColor={limb[2]} />
         </linearGradient>
         <radialGradient id={`${id}-visor`} cx="0.3" cy="0.3" r="0.9">
           <stop offset="0" stopColor="#d9c4ff" />
@@ -65,11 +67,13 @@ function Astronaut({ id }: { id: string }) {
         </radialGradient>
       </defs>
       {/* violet rim light from the ring (upper left), then the body over it */}
-      <g transform="translate(-2.3 -1.7)" opacity="0.95">
-        <Figure p={rim} />
-      </g>
+      {light ? null : (
+        <g transform="translate(-2.3 -1.7)" opacity="0.95">
+          <Figure p={rim} />
+        </g>
+      )}
       <Figure p={body} />
-      <rect x="41" y="64" width="16" height="10" rx="2.5" fill="#12101d" opacity="0.7" />
+      <rect x="41" y="64" width="16" height="10" rx="2.5" fill={light ? "#5f5a78" : "#12101d"} opacity="0.7" />
       <circle cx="45.5" cy="69" r="1.4" fill="#9b7bff" />
       <ellipse cx="60" cy="33" rx="15" ry="12.5" fill={`url(#${id}-visor)`} />
       <ellipse cx="54" cy="28" rx="4.5" ry="2.2" fill="white" opacity="0.55" transform="rotate(-25 54 28)" />
@@ -122,38 +126,29 @@ export function HeroSpace({ className = "", compact = false }: { className?: str
 }
 
 /**
- * Full-bleed version: the space scene fills its parent (position it with
- * absolute inset-0). The ring frames the centred hero text, and the astronauts
- * drift in the background around it.
+ * Hero background on white: astronauts in white suits drifting in the
+ * background. Fills its parent (absolute inset-0).
  */
 export function HeroBackdrop() {
   return (
-    <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden bg-[#06050d]">
-      <div className="absolute inset-0 bg-[radial-gradient(50%_55%_at_50%_52%,rgba(120,70,240,0.22),transparent_72%),radial-gradient(80%_60%_at_50%_115%,rgba(60,40,150,0.35),transparent_70%)]" />
+    <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden bg-canvas">
+      {/* faint star specks in brand violet */}
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-        {STARS.concat(STARS.map((s) => ({ ...s, x: (s.x + 37) % 100, y: (s.y + 53) % 100 }))).map((st, i) => (
-          <circle key={i} cx={st.x * 16} cy={st.y * 9} r={st.r * 1.1} fill="white" opacity={st.o * 0.8} />
+        {STARS.map((st, i) => (
+          <circle key={i} cx={st.x * 16} cy={st.y * 9} r={st.r * 1.3} fill="#7b35e8" opacity={st.o * 0.28} />
         ))}
       </svg>
 
-      {/* the official glowing ring, framing the headline */}
-      <div className="absolute left-1/2 top-1/2 w-[150vw] max-w-[58rem] -translate-x-1/2 -translate-y-1/2 opacity-80 sm:w-[110vw] lg:w-[64rem] lg:max-w-none">
-        <Image src="/brand/orbit-icon-glow.webp" alt="" width={403} height={381} priority className="h-auto w-full" />
+      {/* astronauts: one near (lower right), one far (upper left) */}
+      <div className="space-drift-a absolute right-[5%] top-[86%] w-[14vw] min-w-[3.2rem] max-w-[9.5rem] drop-shadow-[0_18px_24px_rgba(60,40,120,0.18)] sm:right-[4%] sm:top-[60%] sm:w-[18vw] lg:right-[11%] lg:top-[58%]">
+        <Astronaut id="bg1" light />
       </div>
-
-      {/* astronauts in the background: one near (lower right), one far (upper left) */}
-      <div className="space-drift-a absolute right-[5%] top-[86%] w-[14vw] min-w-[3.2rem] max-w-[9.5rem] opacity-80 sm:right-[4%] sm:top-[60%] lg:top-[58%] sm:w-[18vw] sm:opacity-90 lg:right-[11%]">
-        <Astronaut id="bg1" />
-      </div>
-      <div className="space-drift-b absolute left-[7%] top-[3%] w-[9vw] min-w-[1.8rem] max-w-[4.5rem] opacity-60 blur-[0.4px] sm:top-[14%] lg:left-[13%]">
+      <div className="space-drift-b absolute left-[7%] top-[3%] w-[9vw] min-w-[1.8rem] max-w-[4.5rem] opacity-70 drop-shadow-[0_10px_14px_rgba(60,40,120,0.14)] sm:top-[14%] lg:left-[13%]">
         <div className="-rotate-[28deg] -scale-x-100">
-          <Astronaut id="bg2" />
+          <Astronaut id="bg2" light />
         </div>
       </div>
-
-      {/* keep the text readable over the scene */}
-      <div className="absolute inset-0 bg-[radial-gradient(38%_40%_at_50%_50%,rgba(6,5,13,0.55),transparent_75%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#06050d] to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(36%_38%_at_50%_50%,rgba(255,255,255,0.85),transparent_75%)]" />
     </div>
   );
 }

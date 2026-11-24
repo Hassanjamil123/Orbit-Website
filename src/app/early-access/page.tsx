@@ -25,7 +25,7 @@ const expectations = [
 export default function EarlyAccessPage() {
   return (
     <>
-      <section aria-labelledby="early-title" className="relative isolate overflow-hidden text-white">
+      <section aria-labelledby="early-title" className="relative isolate overflow-hidden border-b border-line">
         <HeroBackdrop />
         <Container className="flex flex-col items-center py-24 text-center sm:py-28 lg:py-32">
           <h1 id="early-title" className="text-display font-bold uppercase">
@@ -33,11 +33,11 @@ export default function EarlyAccessPage() {
             <br />
             private beta.
           </h1>
-          <p className="mt-8 max-w-[34rem] text-lead text-white/75">
+          <p className="mt-8 max-w-[34rem] text-lead text-body">
             Orbit&apos;s private beta goes beyond chat: research, planning, drafting and real actions where supported,
             with your approval for anything that matters. Leave your email and we&apos;ll be in touch as places open up.
           </p>
-          <div className="mt-10 w-full max-w-xl rounded-lg bg-canvas p-6 text-left text-ink sm:p-8">
+          <div className="mt-10 w-full max-w-xl rounded-lg border border-line bg-canvas p-6 text-left text-ink shadow-[0_20px_50px_-30px_rgba(60,40,120,0.35)] sm:p-8">
             <WaitlistForm source="early-access" />
           </div>
         </Container>
