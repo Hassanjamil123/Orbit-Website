@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
-import { HeroSpace } from "./HeroSpace";
 
 /* Shared layout and action primitives. Every page is built from these. */
 
@@ -107,13 +106,10 @@ export function Heading({
 export function PageIntro({ title, lead, children }: { title: ReactNode; lead: ReactNode; children?: ReactNode }) {
   return (
     <section className="border-b border-line pb-20 pt-14 sm:pb-24 sm:pt-20">
-      <Container className="grid items-center gap-12 lg:grid-cols-[1fr_20rem] lg:gap-20">
-        <div>
-          <h1 className="max-w-4xl text-hero font-bold text-balance">{title}</h1>
-          <p className="mt-8 max-w-[38rem] text-lead text-body">{lead}</p>
-          {children}
-        </div>
-        <HeroSpace compact className="hidden lg:block" />
+      <Container>
+        <h1 className="max-w-4xl text-hero font-bold text-balance">{title}</h1>
+        <p className="mt-8 max-w-[38rem] text-lead text-body">{lead}</p>
+        {children}
       </Container>
     </section>
   );

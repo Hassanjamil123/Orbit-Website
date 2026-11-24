@@ -1,6 +1,6 @@
 import { ClosingCta } from "@/components/ClosingCta";
 import { WaitlistForm } from "@/components/forms/WaitlistForm";
-import { HeroSpace } from "@/components/HeroSpace";
+import { HeroBackdrop } from "@/components/HeroSpace";
 import { RingIcon } from "@/components/Logo";
 import { ButtonLink, Container, Heading, Section, Tag, TextLink } from "@/components/ui";
 import { differences, domains, requests, stageLabel } from "@/content/capabilities";
@@ -27,35 +27,33 @@ export default function HomePage() {
   const featuredDomains = domains.filter((d) => featured.includes(d.name));
   return (
     <>
-      {/* Hero */}
-      <section aria-labelledby="hero-title" className="overflow-hidden pb-20 pt-12 sm:pb-28 sm:pt-16 lg:pt-20">
-        <Container className="grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-          <div>
-            <h1 id="hero-title" className="text-display font-bold uppercase">
-              Just tell
-              <br />
-              Orbit.
-            </h1>
-            <p className="mt-8 max-w-[33rem] text-lead text-body">
-              Orbit is a personal AI built to do more than answer. It researches, plans, organizes, creates and takes
-              action across your life and work, always with your approval when it matters.
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="#join" size="lg">
-                Join the Waitlist
-              </ButtonLink>
-              <ButtonLink href="/capabilities" variant="secondary" size="lg">
-                Explore Orbit
-              </ButtonLink>
-            </div>
-            <p className="mt-6 text-sm text-muted">Private beta waitlist. No account needed, just your email.</p>
+      {/* Hero: centred over the full-bleed space scene */}
+      <section aria-labelledby="hero-title" className="relative isolate overflow-hidden text-white">
+        <HeroBackdrop />
+        <Container className="flex min-h-[40rem] flex-col items-center justify-center py-24 text-center sm:min-h-[46rem] lg:min-h-[50rem]">
+          <h1 id="hero-title" className="text-display font-bold uppercase">
+            Just tell
+            <br />
+            Orbit.
+          </h1>
+          <p className="mt-8 max-w-[34rem] text-lead text-white/75">
+            Orbit is a personal AI built to do more than answer. It researches, plans, organizes, creates and takes
+            action across your life and work, always with your approval when it matters.
+          </p>
+          <div className="mt-10 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+            <ButtonLink href="#join" size="lg">
+              Join the Waitlist
+            </ButtonLink>
+            <ButtonLink href="/capabilities" variant="secondary" size="lg">
+              Explore Orbit
+            </ButtonLink>
           </div>
-          <HeroSpace />
+          <p className="mt-6 text-sm text-white/55">Private beta waitlist. No account needed, just your email.</p>
         </Container>
       </section>
 
       {/* Relatable, action-oriented examples */}
-      <Section aria-labelledby="examples-title" id="examples" className="border-t border-line">
+      <Section aria-labelledby="examples-title" id="examples">
         <Container className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:self-start">
             <Heading

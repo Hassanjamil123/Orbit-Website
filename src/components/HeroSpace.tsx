@@ -120,3 +120,40 @@ export function HeroSpace({ className = "", compact = false }: { className?: str
     </div>
   );
 }
+
+/**
+ * Full-bleed version: the space scene fills its parent (position it with
+ * absolute inset-0). The ring frames the centred hero text, and the astronauts
+ * drift in the background around it.
+ */
+export function HeroBackdrop() {
+  return (
+    <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden bg-[#06050d]">
+      <div className="absolute inset-0 bg-[radial-gradient(50%_55%_at_50%_52%,rgba(120,70,240,0.22),transparent_72%),radial-gradient(80%_60%_at_50%_115%,rgba(60,40,150,0.35),transparent_70%)]" />
+      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+        {STARS.concat(STARS.map((s) => ({ ...s, x: (s.x + 37) % 100, y: (s.y + 53) % 100 }))).map((st, i) => (
+          <circle key={i} cx={st.x * 16} cy={st.y * 9} r={st.r * 1.1} fill="white" opacity={st.o * 0.8} />
+        ))}
+      </svg>
+
+      {/* the official glowing ring, framing the headline */}
+      <div className="absolute left-1/2 top-1/2 w-[150vw] max-w-[58rem] -translate-x-1/2 -translate-y-1/2 opacity-80 sm:w-[110vw] lg:w-[64rem] lg:max-w-none">
+        <Image src="/brand/orbit-icon-glow.webp" alt="" width={403} height={381} priority className="h-auto w-full" />
+      </div>
+
+      {/* astronauts in the background: one near (lower right), one far (upper left) */}
+      <div className="space-drift-a absolute right-[5%] top-[86%] w-[14vw] min-w-[3.2rem] max-w-[9.5rem] opacity-80 sm:right-[4%] sm:top-[60%] lg:top-[58%] sm:w-[18vw] sm:opacity-90 lg:right-[11%]">
+        <Astronaut id="bg1" />
+      </div>
+      <div className="space-drift-b absolute left-[7%] top-[3%] w-[9vw] min-w-[1.8rem] max-w-[4.5rem] opacity-60 blur-[0.4px] sm:top-[14%] lg:left-[13%]">
+        <div className="-rotate-[28deg] -scale-x-100">
+          <Astronaut id="bg2" />
+        </div>
+      </div>
+
+      {/* keep the text readable over the scene */}
+      <div className="absolute inset-0 bg-[radial-gradient(38%_40%_at_50%_50%,rgba(6,5,13,0.55),transparent_75%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#06050d] to-transparent" />
+    </div>
+  );
+}
